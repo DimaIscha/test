@@ -1,0 +1,34 @@
+### Query ###
+type Query {
+    getAuthors: [AuthorResponse]
+    getAuthorsByNameBook(nameBook: String!): [AuthorResponse]
+    getAuthorByNameAndLastName(name: String!, lastName: String!): AuthorResponse
+}
+
+### Mutation ###
+type Mutation {
+    saveAuthor(authorRequest: AuthorRequest): String!
+    deleteAuthorByNameAndLatsName(name: String!, lastName: String!): String!
+    deleteAuthorById(id: String!): String!
+    addBookToAuthor(authorRequest: AuthorRequest): Boolean
+}
+
+### Model Response ###
+type AuthorResponse {
+    id: ID!
+    name: String!
+    lastName: String!
+    books: [BookResponse]
+}
+
+### Model Request ###
+input AuthorRequest {
+    name: String!
+    lastName: String!
+    books: [BookLink]
+}
+
+input AuthorRequestLink {
+    name: String!
+    lastName: String!
+}

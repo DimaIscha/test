@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/mydb
+    driver-class-name: org.postgresql.Driver
+    username: myuser
+    password: qwe
+
+  jpa:
+    database: postgresql
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+
+  graphql:
+    graphiql:
+      enabled: true
+
+server:
+  port: 8080

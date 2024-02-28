@@ -1,0 +1,35 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1.0.0" author="dima#create#table#authors_books" runOnChange="true">
+        <preConditions>
+            <not>
+                <tableExists tableName="authors_books"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="authors_books">
+            <column name="author_id" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="book_id" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="authors_books"
+                                 baseColumnNames="author_id"
+                                 constraintName="authors_books_author_id_ref_author_id"
+                                 referencedTableName="author"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="authors_books"
+                                 baseColumnNames="book_id"
+                                 constraintName="authors_books_book_id_ref_book_id"
+                                 referencedTableName="book"
+                                 referencedColumnNames="id"/>
+        <addPrimaryKey tableName="authors_books"
+                             columnNames="author_id, book_id"
+                             constraintName="uc_authors_books_author_id_book_id"/>
+    </changeSet>
+</databaseChangeLog>

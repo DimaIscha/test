@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1.0.0" author="dima#insert#table#author" runOnChange="true">
+        <preConditions>
+            <tableExists tableName="book"/>
+        </preConditions>
+
+        <insert tableName="book">
+            <column name="id" value="9f8d558e-8d3e-423e-8397-0cc577e340bb"/>
+            <column name="name" value="Портрет"/>
+        </insert>
+
+        <insert tableName="book">
+            <column name="id" value="7f3529a9-90d7-4886-8499-9ef3b2eb78ba"/>
+            <column name="name" value="Идиот"/>
+        </insert>
+
+        <insert tableName="book">
+            <column name="id" value="d9f52e6e-a91d-434b-a600-8a8b5d2c9fa2"/>
+            <column name="name" value="Анна Каренина"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

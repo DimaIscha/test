@@ -1,0 +1,30 @@
+### Query ###
+extend type Query {
+    getBooks: [BookResponse]
+    getBooksByAuthorNameAndLastName(name: String!, lastName: String!): [BookResponse]
+    getBookByName(name: String!): BookResponse
+}
+
+### Mutation ###
+extend type Mutation {
+    saveBook(bookRequest: BookRequest): String!
+    deleteBookByName(name: String!): String!
+    deleteBookById(id: String!): String!
+}
+
+### Model Response ###
+type BookResponse {
+    id: String
+    name: String
+    authors: [AuthorResponse]
+}
+
+### Model Request ###
+input BookRequest{
+    name: String!
+    authors: [AuthorRequestLink!]!
+}
+
+input BookLink {
+    name: String!
+}

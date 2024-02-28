@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <!-- DDL -->
+    <include file="classpath:db/changelog/ddl/AUTHOR-CREATE-SCHEME.xml"
+             relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/ddl/BOOK-CREATE-SCHEME.xml"
+             relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/ddl/AUTHOR-BOOK-CREATE-SCHEME.xml"
+             relativeToChangelogFile="false"/>
+
+    <!-- DML -->
+    <include file="classpath:db/changelog/dml/INSERT-AUTHOR.xml"
+             relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/dml/INSERT-BOOK.xml"
+             relativeToChangelogFile="false"/>
+
+    <include file="classpath:db/changelog/dml/INSERT-AUTHOR-BOOK.xml"
+             relativeToChangelogFile="false"/>
+
+</databaseChangeLog>
